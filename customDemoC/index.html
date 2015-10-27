@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hello Dijit!</title>
+    <!-- 使用dijit的claro样式 -->
+    <link rel="stylesheet" type="text/css" href="../dijit/themes/claro/claro.css">
+    <link rel="stylesheet" type="text/css" href="../dojox/grid/resources/claroGrid.css">
+    <!-- 配置dojoConfig -->
+    <script type="text/javascript">
+        var dojoConfig = {
+        	async : true,      //设置异步加载模块
+        	baseUrl : "..",    //设置根目录为当前文件的上一层目录
+        	// parseOnLoad: true,  //建议不在这里配置,再启动该组件时手动调用parser.parse()方法
+        	packages : [{
+        		name : "dojo",
+        		location : "/dojo"    //基于根目录的dojo目录
+        	},{
+        		name : "dijit",
+        		location : "/dijit"
+        	},{
+                name : "dojox",
+                location : "/dojox"
+            },{
+                name : "widget",
+                location : "/customDemoC/widgets"
+            }]
+        }
+    </script>
+    <!-- 加载dojo.js -->
+  	<script src="../dojo/dojo.js"></script>
+</head>
+
+<!-- 在body上设置claro样式 -->
+<body class="claro">
+
+    <!-- *******************这里放置元素或组件模块 start******************** -->
+    <div data-dojo-type = "customDemoC/widgets/MyEntry"></div>
+    <div id="grid"></div>
+    <!-- *******************这里放置元素或组件模块  end ******************** -->
+
+    <script>
+	    require([
+            "dojo/parser",
+            "widget/MyEntry",
+            "dojo/domReady!"
+        ], function(parser,MyEntry){
+            parser.parse();
+	    });
+    </script>  
+
+</body>
+</html>

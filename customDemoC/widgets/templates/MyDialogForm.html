@@ -1,0 +1,69 @@
+<div>
+	<div data-dojo-type="dijit/Dialog" data-dojo-props="closable:false" data-dojo-attach-point="myDialogForm" title="注册个人信息" style="width:370px; height:400px;">
+		<!-- 下面为dialog中的form -->
+ 		<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="myForm" encType="multipart/form-data" action="" method="">
+
+	<!-- {name:"Jack",sex:"f",hobby:"['sleep', 'food']",marriage:"Y",education:"3",experience:"2",birthDate:"1973-5-3"} -->
+			<table style="border:1px solid #9f9f9f;width:350px;" cellspacing="10">
+				<tr>
+					<td><label>姓名:</label></td>
+					<td><input name="name" data-dojo-type="dijit/form/ValidationTextBox" value="YouName"
+							   data-dojo-props="intermediateChanges:true,
+							   					required : true,
+												patttern : '^[a-z]+$',
+												invalidMessage : '${textBoxInvalidMessage}',
+												tooltipPosition: ['${textBoxTooltipPosition}']"
+							   data-dojo-attach-point="name"></input></td>
+				</tr>
+				<tr>
+					<td><label>性别:</label></td>
+					<td><select name="sex" data-dojo-type="dijit/form/Select" data-dojo-attach-point="sex">
+						<option value="m">男</option>
+						<option value="f">女</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td><label>爱好:</label></td>
+					<td><label><input name="hobby" data-dojo-type="dijit/form/CheckBox" value="sport" checked>运动</label>
+						<label><input name="hobby" data-dojo-type="dijit/form/CheckBox" value="sleep">睡觉</label>
+						<label><input name="hobby" data-dojo-type="dijit/form/CheckBox" value="food">美食</label></td>
+				</tr>
+				<tr>
+					<td><label>婚否:</label></td>
+					<td><label><input name="marriage" data-dojo-type="dijit/form/RadioButton" value="Y" checked>是</label>
+						<label><input name="marriage" data-dojo-type="dijit/form/RadioButton" value="N">否</label></td>
+				</tr>
+				<tr>
+					<td><label>学历:</label></td>
+					<td><div name="education" data-dojo-type="dijit/form/HorizontalSlider"
+												 data-dojo-props="value : 2,
+												 				  minimum : 1,
+												 				  maximum : 4,
+												 				  discreteValues : 4,
+												 				  intermediateChanges : true,
+												 				  showButtons : false" style="width:200px;">
+						<span data-dojo-type="dijit/form/HorizontalRule" container="bottomDecoration" count="4" style="height:5px;"></span>
+						<ol data-dojo-type="dijit/form/HorizontalRuleLabels" container="bottomDecoration" style="height:1em;font-size:70%;color:gray;">
+							<li>others</li>
+							<li>college</li>
+							<li>master</li>
+							<li>doctor</li>
+						</ol></div></td>
+				</tr>
+				<tr>
+					<td><label>工龄:</label></td>
+					<td><input name="experience" data-dojo-type="dijit/form/NumberSpinner"
+													data-dojo-props="value : 0,
+																	 constraints : {min:0,max:5,places:0}"></td>
+				</tr>
+				<tr>
+					<td><label>生日:</label></td>
+					<td><input name="birthDate" data-dojo-type="dijit/form/DateTextBox" value="2015-9-30"/></td>
+				</tr>
+			</table>
+		    <button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-event="onClick: onAgreeClick">注册</button>
+		    <button data-dojo-type="dijit/form/Button" type="reset">重置</button>
+		    <button data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick: onDisagreeClick">关闭</button>
+		</div>
+	</div>
+</div>
